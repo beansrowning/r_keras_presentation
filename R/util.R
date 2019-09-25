@@ -1,11 +1,12 @@
-# Helper Functions
-# Sean Browning
-# ====================
+# ============================================================================ #
+# Helper Functions                                                             #
+# Sean Browning                                                                #
+# ============================================================================ #
 
 #' @title Sample points on a larger sphere enclosing a smaller sphere
 #' @description
-#' Dataset generation function to produce data points for two enclosed spheres
-#' a simple toy dataset for classification in 3 dimensions. A logical extension
+#' Dataset generation function to produce data points for two enclosed spheres.
+#' A simple toy dataset for classification in 3 dimensions. A logical extension
 #' to the \code{make_circles()} function within SK-learn.
 #'
 #' @param samples (int) The total number of points generated.
@@ -110,3 +111,4 @@ make_circles <- function(samples = 100L, shuffle = TRUE, noise = NULL, state = N
   
   return(out)
 }
+
