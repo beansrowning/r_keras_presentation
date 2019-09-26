@@ -226,10 +226,14 @@ include_graphics("../img/spheres_fit.png")
 ## Deep Text Classification - Motivations
 
 <div class="columns-2">
-- Test result field is plain-text
-- Finite set of canonical values to correct to
-- Lots of historical labeled data from a lookup table
+- Test result field is plain-text  
 
+- Finite set of canonical values to correct to  
+
+- Lots of historical labeled data from a lookup table  
+
+</br>
+</br>
 
 - Thousands of dirty values every year per pathogen (2005--present)
 - My system works on 4 pathogens (STEC, Shigella, Salmonella, Campylobacter)
@@ -318,7 +322,7 @@ There is plenty of room for improvement here:
 
 - Time periods of epidemiological importance obfuscated by local, seasonal trends
 - Auto-regressive, trend components are a "nuisance" to be learned and filtered
-- The residual is the signal, provided the only error is due to measurement error
+- The residual is the signal, provided the only error was due to measurement error
 
 ## Unsupervised to Supervised
 
@@ -327,11 +331,33 @@ There is plenty of room for improvement here:
 - Seasonality, temporal patterns all learned through recurrent topology  
 
 <div class="centered">
-```{r rnn_view, out.width = "400px"}
+```{r rnn_view, out.width = "350px"}
 include_graphics("../img/rnn_topo.png")
 ```
 </div>
 
-## A primer  
+## Model
+
+<div class="columns-2">
+Features:  
+
+ - 1, 3, 13, 52 wk lagged STEC O157 counts  
+ - 1, 52 wk lagged total STEC counts  
+ - Season (1--4)  
+ - Race, ethnicity, specimen source  
+
+Output:  
+
+- Predicted O157 case counts at $t,...,t+n$  
+- Mean Squared Error loss function
+</div>
+
+
+# Code
+
+## Residual analysis  
+
+- Anomalous time periods indicated using IQR or S-H-ESD<footnote>Seasonal Hybrid Extreme Studentized Deviate arXiv:[1704.07706](https://arxiv.org/abs/1704.07706) [cs.LG]</footnote> method from anomalize package  
+
 
 # Questions? | Sean Browning, MSc. (NCEZID/DFWED/EDEB)
