@@ -16,6 +16,7 @@ jobs:
       - name: Build 🔧
         run: |
           apt-get update && apt-get install -y rsync
+          mkdir docs
           R -e "rmarkdown::render('Rmd/presentation.Rmd', output_file = '../docs/index.html')"
 
       - name: Deploy 🚀
